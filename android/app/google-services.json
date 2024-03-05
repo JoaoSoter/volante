@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1013078136393",
+    "project_id": "volante-19782024",
+    "storage_bucket": "volante-19782024.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013078136393:android:f41dd33f674f7bbb4bd198",
+        "android_client_info": {
+          "package_name": "br.com.volante"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnksjZLRwXPm34YHoDozCYEXQHEfzFsyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
