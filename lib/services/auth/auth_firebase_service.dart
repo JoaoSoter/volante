@@ -2,9 +2,9 @@
 
 import 'dart:io';
 import 'dart:async';
-import 'package:volante/core/models/usuario.dart';
 import 'package:volante/core/services/auth/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:volante/core/models/usuario.dart';
 
 class AuthFirebaseService implements AuthService {
   static Usuario? _currentUser;

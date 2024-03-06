@@ -1,4 +1,4 @@
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
 
 import 'dart:io';
 import 'dart:async';
@@ -8,10 +8,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthFirebaseService implements AuthService {
   static Usuario? _currentUser;
+
   static final _userStream = Stream<Usuario?>.multi((controller) async {
     final authChanges = FirebaseAuth.instance.authStateChanges();
     await for (final user in authChanges) {
-      _currentUser = user == null ? null : _toUsuario(user);
+      _currentUser = user == null ? null : _toUser(user);
       controller.add(_currentUser);
     }
   });
@@ -53,7 +54,7 @@ class AuthFirebaseService implements AuthService {
     FirebaseAuth.instance.signOut();
   }
 
-  static Usuario _toUsuario(User user) {
+  static Usuario _toUser(User user) {
     return Usuario(
       id: user.uid,
       name: user.displayName ?? user.email!.split('@')[0],

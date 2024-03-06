@@ -1,9 +1,6 @@
-// ignore_for_file: unused_import
-
 import 'dart:io';
-import 'package:volante/core/models/usuario.dart';
 import 'package:volante/core/services/auth/auth_firebase_service.dart';
-import 'package:volante/services/auth/auth_mock_service.dart';
+import 'package:volante/core/models/usuario.dart';
 
 abstract class AuthService {
   Usuario? get currentUser;
@@ -25,7 +22,7 @@ abstract class AuthService {
   Future<void> logout();
 
   factory AuthService() {
-    return AuthMockService();
-    //return AuthFirebaseService();
+    // return AuthMockService();
+    return AuthFirebaseService();
   }
 }
