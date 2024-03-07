@@ -7,7 +7,6 @@ import 'package:volante/screens/authentication/auth_screen.dart';
 import 'package:volante/screens/splash/loading_screen.dart';
 import 'package:volante/screens/denuncie_aqui.dart';
 import 'package:volante/screens/settings_screen.dart';
-import 'package:volante/screens/splash/splash_screen.dart';
 import 'package:volante/screens/test_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import './utils/app_routes.dart';
@@ -42,19 +41,8 @@ class MyApp extends StatelessWidget {
           style: ElevatedButton.styleFrom(
               backgroundColor: Colors.amber, foregroundColor: Colors.black),
         ),
-        // Define a cor do texto
-        // textTheme: TextTheme(
-        //   bodyText1: TextStyle(
-        //     color: Colors.black,
-        //     fontFamily: GoogleFonts.roboto().fontFamily,
-        //   ), // Altera a cor do texto padrão
-        //   bodyText2: TextStyle(
-        //     color: Colors.black,
-        //     fontFamily: GoogleFonts.ubuntu().fontFamily,
-        //   ),
-        // ),
       ),
-      home: const SplashScreen(),
+      home: const AuthOrAppScreen(),
       // home: const AuthOrAppScreen(),
       routes: {
         'denuncie-aqui': (_) => const DenuncieAqui(),

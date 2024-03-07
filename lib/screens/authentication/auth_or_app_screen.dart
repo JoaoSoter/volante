@@ -12,6 +12,7 @@ class AuthOrAppScreen extends StatelessWidget {
   const AuthOrAppScreen({super.key});
 
   Future<void> init(BuildContext context) async {
+    WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
   }
 
