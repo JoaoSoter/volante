@@ -1,9 +1,7 @@
-// ignore_for_file: prefer_const_constructors, avoid_print
-
-import 'package:flutter/material.dart';
 import 'package:volante/components/auth_form.dart';
 import 'package:volante/core/models/auth_form_data.dart';
-import 'package:volante/core/services/auth/auth_mock_service.dart';
+import 'package:volante/core/services/auth/auth_service.dart';
+import 'package:flutter/material.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -15,20 +13,19 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   bool _isLoading = false;
 
-  void _handleSubmit(AuthFormData formData) async {
+  Future<void> _handleSubmit(AuthFormData formData) async {
     try {
       setState(() => _isLoading = true);
 
       if (formData.isLogin) {
-        //Login
-        AuthMockService().login(
+        // Login
+        await AuthService().login(
           formData.email,
           formData.password,
         );
       } else {
-        //Signup
-        print('Signup');
-        AuthMockService().signup(
+        // Signup
+        await AuthService().signup(
           formData.name,
           formData.email,
           formData.password,
@@ -36,7 +33,7 @@ class _AuthScreenState extends State<AuthScreen> {
         );
       }
     } catch (error) {
-      //tratamento de erro
+      // Tratar erro!
     } finally {
       setState(() => _isLoading = false);
     }
@@ -45,7 +42,7 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Theme.of(context).copyWith().primaryColor,
+      backgroundColor: Theme.of(context).primaryColor,
       body: Stack(
         children: [
           Center(
@@ -55,8 +52,12 @@ class _AuthScreenState extends State<AuthScreen> {
           ),
           if (_isLoading)
             Container(
-              decoration: BoxDecoration(color: Color.fromRGBO(0, 0, 0, 50)),
-              child: Center(child: CircularProgressIndicator()),
+              decoration: const BoxDecoration(
+                color: Color.fromRGBO(0, 0, 0, 0.5),
+              ),
+              child: const Center(
+                child: CircularProgressIndicator(),
+              ),
             ),
         ],
       ),

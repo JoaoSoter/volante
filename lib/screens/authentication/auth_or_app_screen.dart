@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, depend_on_referenced_packages
+
 import 'package:volante/core/models/usuario.dart';
 import 'package:volante/core/services/auth/auth_service.dart';
 import 'package:volante/screens/authentication/auth_screen.dart';
