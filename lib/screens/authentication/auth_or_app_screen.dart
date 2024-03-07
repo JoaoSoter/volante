@@ -8,8 +8,8 @@ import 'package:volante/screens/splash/loading_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-class AuthOrAppPage extends StatelessWidget {
-  const AuthOrAppPage({super.key});
+class AuthOrAppScreen extends StatelessWidget {
+  const AuthOrAppScreen({super.key});
 
   Future<void> init(BuildContext context) async {
     await Firebase.initializeApp();
