@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:volante/components/auxs/bottom_homepage_bar.dart';
 import 'package:volante/components/auxs/homepage_drawer.dart';
-import 'package:volante/core/services/auth/auth_mock_service.dart';
+import 'package:volante/core/services/auth/auth_firebase_service.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -26,7 +26,7 @@ class _HomepageState extends State<Homepage> {
             Text('Theme'),
             ElevatedButton(
               onPressed: () {
-                AuthMockService().logout();
+                AuthFirebaseService().logout();
               },
               child: const Text('Ir para Login'),
             ),

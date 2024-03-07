@@ -1,7 +1,6 @@
-// ignore_for_file: unused_import, depend_on_referenced_packages
-
-import 'package:flutter/material.dart';
+// ignore_for_file: unused_import
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 import 'package:volante/screens/authentication/auth_or_app_screen.dart';
 import 'package:volante/screens/authentication/auth_screen.dart';
 import 'package:volante/screens/splash/loading_screen.dart';
