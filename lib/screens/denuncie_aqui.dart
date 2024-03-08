@@ -1,8 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:volante/components/auxs/bottom_homepage_bar.dart';
-import 'package:volante/components/auxs/homepage_drawer.dart';
+
 import 'package:volante/core/services/auth/auth_firebase_service.dart';
 import 'package:volante/utils/app_routes.dart';
 
@@ -16,7 +15,6 @@ class DenuncieAqui extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Denuncie Aqui'),
         ),
-        bottomNavigationBar: BottomHomepageBar(),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -49,7 +47,6 @@ class DenuncieAqui extends StatelessWidget {
             ],
           ),
         ),
-        drawer: HomepageDrawer(),
       ),
     );
   }

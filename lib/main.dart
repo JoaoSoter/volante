@@ -6,7 +6,6 @@ import 'package:volante/screens/authentication/auth_or_app_screen.dart';
 import 'package:volante/screens/authentication/auth_screen.dart';
 //import 'package:volante/screens/splash/loading_screen.dart';
 import 'package:volante/screens/denuncie_aqui.dart';
-import 'package:volante/screens/settings_screen.dart';
 import 'package:volante/screens/test_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import './utils/app_routes.dart';
@@ -51,7 +50,6 @@ class MyApp extends StatelessWidget {
       routes: {
         'denuncie-aqui': (_) => const DenuncieAqui(),
         'test-screen': (_) => const TestScreen(),
-        'settings-screen': (_) => const SettingsScreen(),
         'auth-or-app': (_) => const AuthOrAppScreen(),
         // add more routes as needed
       },
