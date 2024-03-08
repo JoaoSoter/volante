@@ -1,9 +1,10 @@
 // ignore_for_file: unused_import
 import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:volante/screens/authentication/auth_or_app_screen.dart';
 import 'package:volante/screens/authentication/auth_screen.dart';
-import 'package:volante/screens/splash/loading_screen.dart';
+//import 'package:volante/screens/splash/loading_screen.dart';
 import 'package:volante/screens/denuncie_aqui.dart';
 import 'package:volante/screens/settings_screen.dart';
 import 'package:volante/screens/test_screen.dart';
@@ -12,7 +13,9 @@ import './utils/app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
