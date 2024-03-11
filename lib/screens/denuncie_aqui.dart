@@ -22,7 +22,7 @@ class DenuncieAqui extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  'ÁREA DE DENÚNCIAS',
+                  'HOMEPAGE - VOLANTE',
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
@@ -42,6 +42,14 @@ class DenuncieAqui extends StatelessWidget {
                 child: const Text(
                   'Ir para Testes',
                   style: TextStyle(),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRoutes.map);
+                },
+                child: const Text(
+                  'Ir para Mapa',
                 ),
               ),
             ],

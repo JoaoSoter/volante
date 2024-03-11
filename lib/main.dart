@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 import 'package:firebase_core/firebase_core.dart';
+import 'package:volante/core/models/order_tracking_page.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:volante/screens/authentication/auth_or_app_screen.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
         'denuncie-aqui': (_) => const DenuncieAqui(),
         'test-screen': (_) => const TestScreen(),
         'auth-or-app': (_) => const AuthOrAppScreen(),
+        'order-tracking-page': (_) => const OrderTrackingPage(),
         // add more routes as needed
       },
     );
