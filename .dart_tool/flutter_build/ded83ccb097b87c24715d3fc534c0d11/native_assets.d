@@ -1,0 +1,1 @@
+ C:\\Users\\Mercado\ Paraense\\Pictures\\volante\\.dart_tool\\flutter_build\\ded83ccb097b87c24715d3fc534c0d11\\native_assets.yaml: 

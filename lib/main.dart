@@ -28,11 +28,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
-        scaffoldBackgroundColor: Colors.yellow[200],
+        scaffoldBackgroundColor: Colors.blue[200],
         // Define a cor de fundo do seu aplicativo
-        appBarTheme: const AppBarTheme(color: Colors.amber),
+        appBarTheme: AppBarTheme(color: Colors.blue[500]),
         colorScheme: theme.colorScheme.copyWith(
-          primary: Colors.purple,
+          primary: Colors.green[100],
           onPrimary: Colors.white,
           secondary: const Color.fromARGB(255, 223, 27, 12),
           onSecondary: Colors.white,
