@@ -41,7 +41,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-android/app/src/main/AndroidManifest.xml
 # Built application files
 *.apk
 *.aar
@@ -129,3 +128,5 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+AndroidManifest.xml
