@@ -41,6 +41,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+android/app/src/main/AndroidManifest.xml
 # Built application files
 *.apk
 *.aar
@@ -64,6 +65,7 @@ out/
 .gradle/
 build/
 app/src/build.gradle
+
 
 # Local configuration file (sdk path, etc)
 local.properties
