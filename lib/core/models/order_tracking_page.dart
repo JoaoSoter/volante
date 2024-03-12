@@ -1,7 +1,6 @@
 // ignore_for_file: unused_field, prefer_const_constructors, avoid_function_literals_in_foreach_calls, avoid_web_libraries_in_flutter, unused_local_variable, unused_import
 
 import 'dart:async';
-import 'dart:html';
 import 'package:flutter_polyline_points_plus/flutter_polyline_points_plus.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
@@ -19,22 +18,40 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
 
   static const LatLng sourceLocation = LatLng(-1.4012, -48.4440);
   static const LatLng destination = LatLng(-1.4095, -48.4444);
+  static const LatLng stop = LatLng(-1.4047, -48.4442);
+
   static final _initialCameraPosition = CameraPosition(
       target: LatLng(sourceLocation.latitude, sourceLocation.longitude));
-
-  //Non-nullable instance field '_googleMapController' must be initialized.
-//Try adding an initializer expression, or a generative constructor that initializes it, or mark it 'late'.
-
-//The property 'latitude' can't be accessed on the type 'LatLng' in a constant expression.
 
   List<LatLng> polylineCoordinates = [];
   LocationData? currentLocation;
 
-  void getCurrentLocation() {
+  BitmapDescriptor sourceIcon = BitmapDescriptor.defaultMarker;
+  BitmapDescriptor destinationIcon = BitmapDescriptor.defaultMarker;
+  BitmapDescriptor currentLocationIcon = BitmapDescriptor.defaultMarker;
+
+  void getCurrentLocation() async {
     Location location = Location();
 
     location.getLocation().then((location) {
       currentLocation = location;
+    });
+
+    GoogleMapController googleMapController = await _controller.future;
+    location.onLocationChanged.listen((newLoc) {
+      currentLocation = newLoc;
+
+      googleMapController.animateCamera(
+        CameraUpdate.newCameraPosition(
+          CameraPosition(
+              target: LatLng(
+                newLoc.latitude!,
+                newLoc.longitude!,
+              ),
+              zoom: 20),
+        ),
+      );
+      setState(() {});
     });
   }
 
@@ -55,10 +72,29 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
     }
   }
 
+  void setCustomMarker() {
+    BitmapDescriptor.fromAssetImage(
+            ImageConfiguration.empty, "assets/images/localizacao.png")
+        .then((icon) {
+      sourceIcon = icon;
+    });
+    BitmapDescriptor.fromAssetImage(
+            ImageConfiguration.empty, "assets/images/bandeira.png")
+        .then((icon) {
+      destinationIcon = icon;
+    });
+    BitmapDescriptor.fromAssetImage(
+            ImageConfiguration.empty, "assets/images/avatar.png")
+        .then((icon) {
+      currentLocationIcon = icon;
+    });
+  }
+
   @override
   void initState() {
-    getCurrentLocation();
     getPolyPoints();
+    getCurrentLocation();
+    setCustomMarker();
     super.initState();
   }
 
@@ -66,11 +102,19 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: currentLocation == null
-          ? Center(child: Text('Carregando...'))
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: const [
+                CircularProgressIndicator(),
+                Center(child: Text('Carregando...'))
+              ],
+            )
           : GoogleMap(
-              initialCameraPosition: const CameraPosition(
-                target: sourceLocation,
-                zoom: 13.5,
+              initialCameraPosition: CameraPosition(
+                target: LatLng(
+                    currentLocation!.latitude!, currentLocation!.longitude!),
+                zoom: 15,
               ),
               polylines: {
                 Polyline(
@@ -80,12 +124,25 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
                     width: 6),
               },
               markers: {
-                const Marker(
-                  markerId: MarkerId("source"),
+                Marker(
+                  markerId: const MarkerId("source"),
+                  icon: sourceIcon,
                   position: sourceLocation,
                 ),
-                const Marker(
+                Marker(
+                  markerId: const MarkerId("currentLocation"),
+                  icon: currentLocationIcon,
+                  position: LatLng(
+                      currentLocation!.latitude!, currentLocation!.longitude!),
+                ),
+                // Marker(
+                //   markerId: const MarkerId("stop"),
+                //   icon: ,
+                //   position: stop,
+                // ),
+                Marker(
                   markerId: MarkerId("destination"),
+                  icon: destinationIcon,
                   position: destination,
                 )
               },

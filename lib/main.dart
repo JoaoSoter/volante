@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         // Define a cor de fundo do seu aplicativo
         appBarTheme: AppBarTheme(color: Colors.blue[500]),
         colorScheme: theme.colorScheme.copyWith(
-          primary: Colors.green[100],
+          primary: Colors.black,
           onPrimary: Colors.white,
           secondary: const Color.fromARGB(255, 223, 27, 12),
           onSecondary: Colors.white,
