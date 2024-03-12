@@ -1,9 +1,11 @@
-// ignore_for_file: unused_field, prefer_const_constructors, avoid_function_literals_in_foreach_calls
+// ignore_for_file: unused_field, prefer_const_constructors, avoid_function_literals_in_foreach_calls, avoid_web_libraries_in_flutter, unused_local_variable, unused_import
 
 import 'dart:async';
+import 'dart:html';
 import 'package:flutter_polyline_points_plus/flutter_polyline_points_plus.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:location/location.dart';
 
 class OrderTrackingPage extends StatefulWidget {
   const OrderTrackingPage({super.key});
@@ -26,6 +28,15 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
 //The property 'latitude' can't be accessed on the type 'LatLng' in a constant expression.
 
   List<LatLng> polylineCoordinates = [];
+  LocationData? currentLocation;
+
+  void getCurrentLocation() {
+    Location location = Location();
+
+    location.getLocation().then((location) {
+      currentLocation = location;
+    });
+  }
 
   void getPolyPoints() async {
     PolylinePoints polylinePoints = PolylinePoints();
@@ -44,16 +55,9 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
     }
   }
 
-  late GoogleMapController _googleMapController;
-
-  @override
-  void dispose() {
-    _googleMapController.dispose();
-    super.dispose();
-  }
-
   @override
   void initState() {
+    getCurrentLocation();
     getPolyPoints();
     super.initState();
   }
@@ -61,39 +65,37 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(
-        initialCameraPosition: const CameraPosition(
-          target: sourceLocation,
-          zoom: 13.5,
-        ),
-        polylines: {
-          Polyline(
-            polylineId: PolylineId("route"),
-            points: polylineCoordinates,
-          ),
-        },
-        markers: {
-          const Marker(
-            markerId: MarkerId("source"),
-            position: sourceLocation,
-          ),
-          const Marker(
-            markerId: MarkerId("destination"),
-            position: destination,
-          )
-        },
-        onMapCreated: (mapController) {
-          _controller.complete(mapController);
-        },
-        myLocationButtonEnabled: false,
-        zoomControlsEnabled: false,
-        compassEnabled: true,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _googleMapController.animateCamera(
-          CameraUpdate.newCameraPosition(_initialCameraPosition),
-        ),
-      ),
+      body: currentLocation == null
+          ? Center(child: Text('Carregando...'))
+          : GoogleMap(
+              initialCameraPosition: const CameraPosition(
+                target: sourceLocation,
+                zoom: 13.5,
+              ),
+              polylines: {
+                Polyline(
+                    polylineId: PolylineId("route"),
+                    points: polylineCoordinates,
+                    color: Color.fromARGB(255, 59, 143, 3),
+                    width: 6),
+              },
+              markers: {
+                const Marker(
+                  markerId: MarkerId("source"),
+                  position: sourceLocation,
+                ),
+                const Marker(
+                  markerId: MarkerId("destination"),
+                  position: destination,
+                )
+              },
+              onMapCreated: (mapController) {
+                _controller.complete(mapController);
+              },
+              myLocationButtonEnabled: false,
+              zoomControlsEnabled: false,
+              compassEnabled: true,
+            ),
     );
   }
 }
