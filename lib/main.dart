@@ -1,5 +1,7 @@
 // ignore_for_file: unused_import
 import 'package:firebase_core/firebase_core.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:volante/core/models/map_screen.dart';
 import 'package:volante/core/models/order_tracking_page.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
     final ThemeData theme = ThemeData();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(
+      theme: ThemeData(
         scaffoldBackgroundColor: Colors.blue[200],
         // Define a cor de fundo do seu aplicativo
         appBarTheme: AppBarTheme(color: Colors.blue[500]),
@@ -52,6 +54,7 @@ class MyApp extends StatelessWidget {
         'denuncie-aqui': (_) => const DenuncieAqui(),
         'test-screen': (_) => const TestScreen(),
         'auth-or-app': (_) => const AuthOrAppScreen(),
+        'map-screen': (_) => const MapScreen(),
         'order-tracking-page': (_) => const OrderTrackingPage(),
         // add more routes as needed
       },

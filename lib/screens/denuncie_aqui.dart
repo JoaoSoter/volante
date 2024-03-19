@@ -46,7 +46,7 @@ class DenuncieAqui extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(AppRoutes.map);
+                  Navigator.of(context).pushNamed(AppRoutes.map1);
                 },
                 child: const Text(
                   'Ir para Mapa',

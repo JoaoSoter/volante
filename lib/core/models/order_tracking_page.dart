@@ -58,7 +58,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
   void getPolyPoints() async {
     PolylinePoints polylinePoints = PolylinePoints();
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
-      'AIzaSyCVr5T_wbJ-v8O4WPIXoGjraDy6VzAaFI0',
+      'AIzaSyC0mxRuBZcxGsf7ydArqj-Z6wxRzlxziKM',
       PointLatLng(sourceLocation.latitude, sourceLocation.longitude),
       PointLatLng(destination.latitude, destination.longitude),
     );
@@ -74,17 +74,17 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
 
   void setCustomMarker() {
     BitmapDescriptor.fromAssetImage(
-            ImageConfiguration.empty, "assets/images/localizacao.png")
+            ImageConfiguration.empty, "assets/icons/localizacao.bmp")
         .then((icon) {
       sourceIcon = icon;
     });
     BitmapDescriptor.fromAssetImage(
-            ImageConfiguration.empty, "assets/images/bandeira.png")
+            ImageConfiguration.empty, "assets/icons/bandeira.bmp")
         .then((icon) {
       destinationIcon = icon;
     });
     BitmapDescriptor.fromAssetImage(
-            ImageConfiguration.empty, "assets/images/avatar.png")
+            ImageConfiguration.empty, "assets/icons/avatar.bmp")
         .then((icon) {
       currentLocationIcon = icon;
     });
