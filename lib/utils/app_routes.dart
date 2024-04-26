@@ -3,6 +3,5 @@ class AppRoutes {
   static const settings = 'settings-screen';
   static const testes = 'test-screen';
   static const login = 'auth-or-app';
-  static const map = 'order-tracking-page';
-  static const map1 = 'map-screen';
+  static const map = 'map-screen';
 }

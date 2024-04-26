@@ -1,3 +1,6 @@
-2024/03/19-16:13:22.892 4fe0 Reusing MANIFEST C:\Users\MERCAD~2\AppData\Local\Temp\flutter_tools.30ac9f95\flutter_tools_chrome_device.bed18314\Default\shared_proto_db/MANIFEST-000001
-2024/03/19-16:13:22.893 4fe0 Recovering log #3
-2024/03/19-16:13:22.894 4fe0 Reusing old log C:\Users\MERCAD~2\AppData\Local\Temp\flutter_tools.30ac9f95\flutter_tools_chrome_device.bed18314\Default\shared_proto_db/000003.log 
+2024/04/26-10:54:03.132 2418 Reusing MANIFEST C:\Users\MERCAD~2\AppData\Local\Temp\flutter_tools.ef15f53e\flutter_tools_chrome_device.8374d48\Default\shared_proto_db/MANIFEST-000001
+2024/04/26-10:54:03.132 2418 Recovering log #3
+2024/04/26-10:54:03.133 2418 Reusing old log C:\Users\MERCAD~2\AppData\Local\Temp\flutter_tools.ef15f53e\flutter_tools_chrome_device.8374d48\Default\shared_proto_db/000003.log 
+2024/04/26-10:54:41.987 2f00 Level-0 table #5: started
+2024/04/26-10:54:42.105 2f00 Level-0 table #5: 132452 bytes OK
+2024/04/26-10:54:42.391 2f00 Delete type=0 #3

@@ -1,6 +1,7 @@
 // ignore_for_file: unused_field, prefer_const_constructors, avoid_function_literals_in_foreach_calls, avoid_web_libraries_in_flutter, unused_local_variable, unused_import
 
 import 'dart:async';
+import 'dart:ffi';
 import 'package:flutter_polyline_points_plus/flutter_polyline_points_plus.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
 
   static const LatLng sourceLocation = LatLng(-1.4012, -48.4440);
   static const LatLng destination = LatLng(-1.4095, -48.4444);
-  static const LatLng stop = LatLng(-1.4047, -48.4442);
+  static const LatLng stop = LatLng(-1.4031, -48.4468);
 
   static final _initialCameraPosition = CameraPosition(
       target: LatLng(sourceLocation.latitude, sourceLocation.longitude));
@@ -27,8 +28,10 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
   LocationData? currentLocation;
 
   BitmapDescriptor sourceIcon = BitmapDescriptor.defaultMarker;
-  BitmapDescriptor destinationIcon = BitmapDescriptor.defaultMarker;
-  BitmapDescriptor currentLocationIcon = BitmapDescriptor.defaultMarker;
+  BitmapDescriptor destinationIcon =
+      BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue);
+  BitmapDescriptor currentLocationIcon =
+      BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueAzure);
 
   void getCurrentLocation() async {
     Location location = Location();
@@ -72,29 +75,29 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
     }
   }
 
-  void setCustomMarker() {
-    BitmapDescriptor.fromAssetImage(
-            ImageConfiguration.empty, "assets/icons/localizacao.bmp")
-        .then((icon) {
-      sourceIcon = icon;
-    });
-    BitmapDescriptor.fromAssetImage(
-            ImageConfiguration.empty, "assets/icons/bandeira.bmp")
-        .then((icon) {
-      destinationIcon = icon;
-    });
-    BitmapDescriptor.fromAssetImage(
-            ImageConfiguration.empty, "assets/icons/avatar.bmp")
-        .then((icon) {
-      currentLocationIcon = icon;
-    });
-  }
+  // void setCustomMarker() {
+  //   BitmapDescriptor.fromAssetImage(
+  //           ImageConfiguration.empty, "assets/icons/localizacao.bmp")
+  //       .then((icon) {
+  //     sourceIcon = icon;
+  //   });
+  //   BitmapDescriptor.fromAssetImage(
+  //           ImageConfiguration.empty, "assets/icons/bandeira.bmp")
+  //       .then((icon) {
+  //     destinationIcon = icon;
+  //   });
+  //   BitmapDescriptor.fromAssetImage(
+  //           ImageConfiguration.empty, "assets/icons/avatar.bmp")
+  //       .then((icon) {
+  //     currentLocationIcon = icon;
+  //   });
+  // }
 
   @override
   void initState() {
     getPolyPoints();
     getCurrentLocation();
-    setCustomMarker();
+    //setCustomMarker();
     super.initState();
   }
 
