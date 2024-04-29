@@ -22,26 +22,21 @@ class HomePage extends StatelessWidget {
             )
           ],
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Stack(
-              children: [
-                Image.asset(
-                  'assets/images/motossom.jpg',
-                  fit: BoxFit.cover,
-                ),
-                ElevatedButton(
-                  style: ButtonStyle(alignment: Alignment.center),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(AppRoutes.map);
-                  },
-                  child: Text('Começar!'),
-                )
-              ],
-            ),
-          ],
+        body: Container(
+          child: Stack(
+            children: [
+              Image.asset(
+                'assets/images/motossom.jpg',
+                fit: BoxFit.cover,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRoutes.rotas);
+                },
+                child: Text('Começar!'),
+              ),
+            ],
+          ),
         ),
       ),
     );

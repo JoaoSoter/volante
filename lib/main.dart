@@ -55,6 +55,7 @@ class MyApp extends StatelessWidget {
         'test-screen': (_) => const TestScreen(),
         'auth-or-app': (_) => const AuthOrAppScreen(),
         'map-screen': (_) => const OrderTrackingPage(),
+        'rotas': (_) => const RotasDisponiveis(),
         // 'order-tracking-page': (_) => const MapSample(),
         // add more routes as needed
       },

@@ -4,4 +4,5 @@ class AppRoutes {
   static const testes = 'test-screen';
   static const login = 'auth-or-app';
   static const map = 'map-screen';
+  static const rotas = 'rotas';
 }
