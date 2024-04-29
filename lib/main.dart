@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:volante/screens/authentication/auth_or_app_screen.dart';
 import 'package:volante/screens/authentication/auth_screen.dart';
 //import 'package:volante/screens/splash/loading_screen.dart';
-import 'package:volante/screens/denuncie_aqui.dart';
+import 'package:volante/screens/home_page.dart';
+import 'package:volante/screens/rotas_disponiveis.dart';
 import 'package:volante/screens/test_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import './utils/app_routes.dart';
@@ -29,9 +30,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.blue[200],
+        scaffoldBackgroundColor: Colors.white,
         // Define a cor de fundo do seu aplicativo
-        appBarTheme: AppBarTheme(color: Colors.blue[500]),
+        appBarTheme: AppBarTheme(color: Colors.redAccent[700]),
         colorScheme: theme.colorScheme.copyWith(
           primary: Colors.black,
           onPrimary: Colors.white,
@@ -44,13 +45,13 @@ class MyApp extends StatelessWidget {
         // Define a cor dos botões
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.amber, foregroundColor: Colors.black),
+              backgroundColor: Colors.red, foregroundColor: Colors.black),
         ),
       ),
       home: const AuthOrAppScreen(),
       // home: const AuthOrAppScreen(),
       routes: {
-        'denuncie-aqui': (_) => const DenuncieAqui(),
+        'home-page': (_) => const HomePage(),
         'test-screen': (_) => const TestScreen(),
         'auth-or-app': (_) => const AuthOrAppScreen(),
         'map-screen': (_) => const OrderTrackingPage(),
