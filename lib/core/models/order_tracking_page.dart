@@ -104,6 +104,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: currentLocation == null
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,

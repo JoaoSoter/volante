@@ -22,6 +22,7 @@ class _ListaRotasState extends State<ListaRotas> {
           Navigator.of(context).pushNamed(AppRoutes.map);
         },
       ),
+      Divider(),
       ListTile(
         title: Text('Rota 2'),
         subtitle: Text('Avenida Tavares Bastos -> Rua Sexta'),
